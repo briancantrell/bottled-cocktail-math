@@ -1,0 +1,65 @@
+.app-logo {
+  animation: App-logo-spin infinite 20s linear;
+}
+
+.container{
+  max-width: 80%;
+}
+
+.app-header {
+  text-align: center;
+  background-color: #222;
+  padding: 20px;
+}
+
+.app-title {
+  margin-top: 0px;
+  color: white;
+  font-size: 4rem;
+}
+
+.dilution-profile {
+  display: block;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.ingredient-list {
+  flex: 2;
+}
+
+.app-logo {
+	font-size: 120px;
+}
+ul {
+  list-style-type: none;
+	padding: 0;
+}
+li {
+  margin-bottom: 15px;
+  text-align: left;
+}
+.bottle-input label {
+	margin-bottom: 15px;
+}
+.bottle-input label, .bottle-input input {
+	display: block;
+}
+
+input,
+select {
+	height: 28px;
+	padding: 5px;
+	font-size: 15px;
+	outline: none!important;
+	border: 1px solid hsla(0, 0, 0, 0.3);
+	box-shadow: inset 0 1px 4px hsla(0, 0, 0, 0.2);
+	margin-right: 10px;
+  width: auto;
+}
+button, select {
+	height: 42px;
+}
