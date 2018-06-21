@@ -1,8 +1,10 @@
 import React from 'react'
+import jsdom from 'jsdom'
 import Totals from '../totals'
-import { mount } from 'enzyme'
+import { shallow } from 'enzyme'
+
 
 test("it calculates the correct batch quantity", () => {
-  const component = mount(<Totals />)
+  const component = shallow(<Totals />)
   
 })

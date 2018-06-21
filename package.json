@@ -52,7 +52,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom",
+    "test": "jest",
     "deploy": "aws s3 sync ./build s3://bottled-cocktail-calculator"
   },
   "jest": {
@@ -62,6 +62,7 @@
     "setupFiles": [
       "<rootDir>/config/polyfills.js"
     ],
+    "setupTestFrameworkScriptFile": "./src/setup_test_framework_script_file.js",
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
       "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
@@ -98,6 +99,8 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "enzyme": "^3.3.0"
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest-enzyme": "^6.0.2"
   }
 }
