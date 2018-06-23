@@ -4,7 +4,7 @@ import './App.css';
 import React, { Component } from 'react';
 import IngredientList from './components/ingredient_list';
 import Bottles from './components/bottles';
-import Totals from './components/totals';
+import TotalsContainer from './containers/totals_container';
 import AddIngredient from './components/add_ingredient';
 import DilutionProfile from './components/dilution_profile';
 
@@ -31,7 +31,7 @@ class App extends Component {
           </div>
           <div className="results col">
 						<h3>Results</h3>
-						<Totals />
+						<TotalsContainer />
 					</div>
         </div>
       </div>

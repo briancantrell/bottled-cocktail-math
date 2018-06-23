@@ -1,10 +1,31 @@
 import React from 'react'
-import jsdom from 'jsdom'
-import Totals from '../totals'
 import { shallow } from 'enzyme'
+import Totals from 'components/totals'
+import { manhattan } from 'cocktail_ingredients'
 
+describe("manhattan test results", () => {
+	const bottles = {
+		bottleSize: 187,
+		bottleCount: 3,
+	}
 
-test("it calculates the correct batch quantity", () => {
-  const component = shallow(<Totals />)
-  
+	const component = shallow(
+		<Totals
+			ingredients={manhattan}
+			bottles={bottles}
+			dilutionProfile={"shaken"}
+		/>,
+	)
+
+	it("calculates the correct batch quantities", () => {
+		expect(component.contains("177 ml Whiskey")).toBeTruthy()
+		expect(component.contains("89 ml Sweet vermouth")).toBeTruthy()
+		expect(component.contains("149 ml Water")).toBeTruthy()
+	})
+
+	it("calculates the correct serving info", () => {
+		expect(component.find(".drinkVolume").text()).toEqual("4.7 oz")
+		expect(component.find(".drinksPerBottle").text()).toEqual("1")
+		expect(component.find(".totalServings").text()).toEqual("3")
+	})
 })
