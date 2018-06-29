@@ -1,5 +1,5 @@
 import React from 'react';
-import Ingredient from '../containers/ingredient';
+import IngredientContainer from '../containers/ingredient_container';
 import { connect } from 'react-redux';
 
 class IngredientList extends React.Component {
@@ -8,7 +8,7 @@ class IngredientList extends React.Component {
       <ul>
         {this.props.ingredients.map(ingredient =>
                                     <li key={ingredient.id}>
-                                    <Ingredient
+                                    <IngredientContainer
                                       id={ingredient.id}
                                       name={ingredient.name}
                                       units={ingredient.units}

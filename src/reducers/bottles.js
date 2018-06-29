@@ -4,15 +4,15 @@ const bottles = (state = {bottleSize: "187", bottleCount: "3"}, action) => {
       return {
         ...state,
         bottleSize: action.bottleSize,
-      };
+      }
     case 'UPDATE_BOTTLE_COUNT':
       return {
         ...state,
         bottleCount: action.bottleCount,
-      };
+      }
     default:
-      return state;
+      return state
   }
 }
 
-export default bottles;
+export default bottles

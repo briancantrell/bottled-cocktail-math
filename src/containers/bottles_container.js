@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch) => {
     onBottleSizeChange: (e) => {
       dispatch({
 				type: 'UPDATE_BOTTLE_SIZE',
-				bottleCount: e.target.value,
+				bottleSize: e.target.value,
 			})
     }
 	}
