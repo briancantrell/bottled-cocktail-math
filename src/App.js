@@ -2,11 +2,11 @@ import 'wingcss';
 import './App.css';
 
 import React, { Component } from 'react';
-import IngredientList from './components/ingredient_list';
-import Bottles from './components/bottles';
-import TotalsContainer from './containers/totals_container';
-import AddIngredient from './components/add_ingredient';
-import DilutionProfile from './components/dilution_profile';
+import IngredientList from 'components/ingredient_list';
+import BottlesContainer from 'containers/bottles_container';
+import TotalsContainer from 'containers/totals_container';
+import AddIngredient from 'components/add_ingredient';
+import DilutionProfile from 'components/dilution_profile';
 
 class App extends Component {
   render() {
@@ -26,7 +26,7 @@ class App extends Component {
           </div>
 					<div className="batch-info col">
 						<h3>Batch info</h3>
-						<Bottles />
+						<BottlesContainer />
 						<DilutionProfile />
           </div>
           <div className="results col">

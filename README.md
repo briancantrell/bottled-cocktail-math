@@ -1,3 +1,18 @@
+# Bottled Cocktail Math
+
+## Features or changes I might want to add down the road.
+- [ ] Put this sucker on Github
+- [ ] Build automatically on CircleCI
+- [ ] Proptypes
+- [ ] Add ml/oz/dash unit support to ingredient and bottle size inputs
+- [ ] More attractive, super classy styling
+- [ ] Links to learn more about bottled cocktails
+- [ ] Remove any unused dependencies added by Create React App
+- [ ] More prebuilt recipes
+- [ ] Persistence
+
+-------
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

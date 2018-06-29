@@ -1,46 +1,33 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-function Bottles({ bottleSize, bottleCount, dispatch }) {
-  let bottleCountInput, bottleSizeInput;
+function Bottles({ bottleSize, bottleCount, onBottleSizeChange, onBottleCountChange }) {
   return(
     <div className="bottle-input">
       <label>
         Bottle count:
-        <input value={bottleCount} ref={node => {
-          bottleCountInput = node
-        }}
-        onChange={(event) => {
-          dispatch({
-            type: 'UPDATE_BOTTLES',
-            bottleCount: bottleCountInput.value,
-            bottleSize: bottleSizeInput.value
-          })
-        }}
-      />
+        <input
+          className="bottle-count-input"
+          value={ bottleCount }
+          onChange={ onBottleCountChange }
+        />
       </label>
 
       <label>
         Bottle size:
-        <input value={bottleSize} ref={node => {
-          bottleSizeInput = node
-        }}
-        onChange={(event) => {
-          dispatch({
-            type: 'UPDATE_BOTTLES',
-            bottleCount: bottleCountInput.value,
-            bottleSize: bottleSizeInput.value
-          })
-        }}
-      />
+        <input
+          className="bottle-size-input"
+          value={bottleSize}
+					onChange={ onBottleSizeChange }
+				/>
       </label>
     </div>
   )
 }
 
-const mapStateToProps = (state) => {
-  let { bottleSize, bottleCount } = state.bottles;
-  return { bottleSize: bottleSize, bottleCount: bottleCount };
-};
+Bottles.propTypes = {
+  bottleSize: PropTypes.string,
+  bottleCount: PropTypes.string,
+}
 
-export default connect(mapStateToProps)(Bottles);
+export default Bottles;
