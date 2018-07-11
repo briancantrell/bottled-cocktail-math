@@ -5,14 +5,18 @@ let idCounter = manhattan.length;
 const ingredients = (state = manhattan, action) => {
   switch (action.type) {
     case 'UPDATE_INGREDIENT':
+      console.log(action);
       let updated_state = state.map( (ingredient) => {
-        if(ingredient.id === action.id) {
-          ingredient.quantity = action.quantity;
-          ingredient.units = action.units;
-          ingredient.name = action.name;
+        if(parseInt(ingredient.id) === parseInt(action.id)) {
+          return({
+            ...ingredient,
+            ...action
+          })
+        }else{
+          return ingredient
         }
-        return ingredient;
       })
+      console.log(updated_state);
       return updated_state;
     case 'ADD_INGREDIENT':
       return [

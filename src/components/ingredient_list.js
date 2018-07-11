@@ -4,18 +4,19 @@ import { connect } from 'react-redux';
 
 class IngredientList extends React.Component {
   render() {
+    const ingredients = this.props.ingredients
     return (
       <ul>
-        {this.props.ingredients.map(ingredient =>
-                                    <li key={ingredient.id}>
-                                    <IngredientContainer
-                                      id={ingredient.id}
-                                      name={ingredient.name}
-                                      units={ingredient.units}
-                                      quantity={ingredient.quantity} />
-                                 </li>
-                                 )}
-     </ul>
+        {ingredients.map(
+          ingredient =>
+          <IngredientContainer
+            key={ ingredient.id }
+            id={ingredient.id}
+            name={ingredient.name}
+            units={ingredient.units}
+            quantity={ingredient.quantity} />
+        )}
+      </ul>
 
     )
   }
