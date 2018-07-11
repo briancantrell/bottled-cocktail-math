@@ -7,6 +7,8 @@ import BottlesContainer from 'containers/bottles_container';
 import TotalsContainer from 'containers/totals_container';
 import AddIngredient from 'components/add_ingredient';
 import DilutionProfile from 'components/dilution_profile';
+import RecipePresets from 'components/recipe_presets';
+import recipes from 'cocktail_ingredients';
 
 class App extends Component {
   render() {
@@ -20,6 +22,7 @@ class App extends Component {
         </header>
         <div className="appControls container row">
           <div className="ingredient-list col">
+            <RecipePresets recipes={ recipes } />
 						<h3>Ingredients</h3>
             <IngredientList />
             <AddIngredient />

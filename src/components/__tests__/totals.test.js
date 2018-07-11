@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import Totals from 'components/totals'
-import { manhattan } from 'cocktail_ingredients'
+import recipes from 'cocktail_ingredients'
 
 describe("manhattan test results", () => {
 	const bottles = {
@@ -9,11 +9,12 @@ describe("manhattan test results", () => {
 		bottleCount: 3,
 	}
 
+  const manhattan = recipes.manhattan
 	const component = shallow(
 		<Totals
-			ingredients={manhattan}
+			ingredients={manhattan.ingredients}
 			bottles={bottles}
-			dilutionProfile={"shaken"}
+			dilutionProfile={manhattan.dilutionProfile}
 		/>,
 	)
 

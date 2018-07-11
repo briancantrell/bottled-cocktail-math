@@ -1,8 +1,9 @@
-import { manhattan } from '../cocktail_ingredients'
+import recipes from 'cocktail_ingredients'
 
-let idCounter = manhattan.length;
+const manhattanIngredients = recipes[0].ingredients
+let idCounter = manhattanIngredients.length
 
-const ingredients = (state = manhattan, action) => {
+const ingredients = (state = manhattanIngredients, action) => {
   switch (action.type) {
     case 'UPDATE_INGREDIENT':
       console.log(action);
