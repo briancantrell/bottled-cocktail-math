@@ -12,6 +12,10 @@
 - [ ] Persistence
 
 -------
+Dashes
+1 dash = 0.72 ml
+https://punchdrink.com/articles/whats-in-a-bitters-dash-anyway-dasher-bottles/
+------
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 

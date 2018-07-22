@@ -1,16 +1,15 @@
 import React from 'react'
-import { mlToOz, ozToMl } from 'utils/units'
+import { ozToMl, mlToOz, toBatchFriendlyUnits } from 'utils/units'
+
 import { ingredientsWithDilution } from 'utils/dilution'
 
 function totalIngredients (ingredients, totalServings) {
   return ingredients.map( (ingredient) => {
-    let normalizedQuantity=  ozToMl(ingredient.quantity)
+    let ingredientInBatchUnits = toBatchFriendlyUnits(ingredient)
 
     return {
-      name: ingredient.name,
-      quantity: normalizedQuantity * totalServings,
-      units: "ml",
-      id: ingredient.id
+      ...ingredientInBatchUnits,
+      quantity: ingredientInBatchUnits.quantity * totalServings,
     }
   })
 }
@@ -21,15 +20,21 @@ function ingredientLine(ingredient) {
 }
 
 function Totals({ ingredients, bottles, dilutionProfile }) {
-  ingredients = ingredientsWithDilution(ingredients, dilutionProfile)
+  const ingredientsInBatchUnits = ingredients.map(toBatchFriendlyUnits)
+  const ingredientsWithWater = ingredientsWithDilution(
+    ingredientsInBatchUnits,
+    dilutionProfile
+  )
 
-  let drinkVolume = ingredients.reduce((total, ingredient) =>
-                                       total + ozToMl(ingredient.quantity), 0)
+  let drinkVolume = ingredientsWithWater.reduce((total, ingredient) =>
+                                       total + ingredient.quantity, 0)
 
   let drinksPerBottle = Math.floor(bottles.bottleSize / drinkVolume)
-  let formattedDrinkVolume = Number.parseFloat(mlToOz(drinkVolume)).toPrecision(2)
+  let formattedDrinkVolume = Number.parseFloat(
+    mlToOz(drinkVolume)
+  ).toPrecision(2)
   let totalServings = drinksPerBottle * bottles.bottleCount
-  let ingredientTotals = totalIngredients(ingredients, totalServings)
+  let ingredientTotals = totalIngredients(ingredientsWithWater, totalServings)
 
   return(
     <ul className="totals">

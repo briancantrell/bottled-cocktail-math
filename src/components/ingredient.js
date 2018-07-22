@@ -1,8 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import UnitPicker from 'components/unit_picker'
 
 function Ingredient({ id, name, quantity, units, dispatch }) {
-  let nameInput, quantityInput, unitInput;
+  let nameInput, quantityInput
   return(
     <label>
       <input size="5" value={quantity} ref={node => {
@@ -12,17 +12,22 @@ function Ingredient({ id, name, quantity, units, dispatch }) {
         dispatch({
           type: 'UPDATE_INGREDIENT',
           id: id,
-          name: nameInput.value,
-          quantity: quantityInput.value,
-          units: unitInput.value
+          quantity: quantityInput.value
         })
       }}
     />
-    <select readOnly value={units} ref={node => {
-      unitInput = node
-    }}>
-      <option value="oz">Oz</option>
-    </select>
+
+  <UnitPicker
+    units={ units }
+    onChange={ (unitVal) => {
+      dispatch({
+        type: 'UPDATE_INGREDIENT',
+        id: id,
+        units: unitVal
+      })
+      }
+    }
+  />
 
     <input value={name} ref={node => {
       nameInput = node
@@ -32,8 +37,6 @@ function Ingredient({ id, name, quantity, units, dispatch }) {
         type: 'UPDATE_INGREDIENT',
         id: id,
         name: nameInput.value,
-        quantity: quantityInput.value,
-        units: unitInput.value
       })
     }}
   />
@@ -42,4 +45,4 @@ function Ingredient({ id, name, quantity, units, dispatch }) {
   )
 }
 
-export default connect()(Ingredient);
+export default Ingredient;

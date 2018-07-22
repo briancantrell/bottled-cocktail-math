@@ -8,7 +8,7 @@ export const ingredientsWithDilution = (ingredients, dilutionProfile) => {
   }
 
   let drinkVolumeWithoutWater = ingredients.reduce( (total, ingredient) =>
-                                       total + ozToMl(ingredient.quantity)
+                                       total + ingredient.quantity
                                        , 0)
 
   const waterPerDrink = drinkVolumeWithoutWater * dilutionMap[dilutionProfile]
@@ -17,8 +17,8 @@ export const ingredientsWithDilution = (ingredients, dilutionProfile) => {
     ...ingredients,
     {
       name: "Water",
-      quantity: mlToOz(waterPerDrink),
-      units: "oz",
+      quantity: waterPerDrink,
+      units: "ml",
       id: "water"
     }
   ]
