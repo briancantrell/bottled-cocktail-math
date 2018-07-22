@@ -6,13 +6,13 @@ const ingredients = (state = manhattan, action) => {
   switch (action.type) {
     case 'UPDATE_INGREDIENT':
       let updated_state = state.map( (ingredient) => {
-        if(ingredient.id === action.id) {
+        if(parseInt(ingredient.id) === parseInt(action.id)) {
           return {
             ...ingredient,
             ...action
           }
         }else{ return ingredient }
-    })
+      })
       return updated_state;
     case 'ADD_INGREDIENT':
       return [
