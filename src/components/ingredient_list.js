@@ -7,15 +7,15 @@ class IngredientList extends React.Component {
     const ingredients = this.props.ingredients
     return (
       <ul>
-        {this.props.ingredients.map(ingredient =>
-                                      <IngredientContainer
-                                        key={ ingredient.id }
-                                        id={ingredient.id}
-                                        name={ingredient.name}
-                                        units={ingredient.units}
-                                        quantity={ingredient.quantity} />
-                                 )}
-     </ul>
+        {ingredients.map(ingredient =>
+                         <IngredientContainer
+                           key={ ingredient.id }
+                           id={ingredient.id}
+                           name={ingredient.name}
+                           units={ingredient.units}
+                           quantity={ingredient.quantity} />
+                        )}
+                      </ul>
 
     )
   }

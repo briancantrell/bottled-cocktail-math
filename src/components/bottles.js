@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import UnitPicker from 'components/unit_picker'
 
-function Bottles({ bottleSize, bottleCount, onBottleSizeChange, onBottleCountChange }) {
+function Bottles({ bottleSize, bottleCount, bottleUnit, onBottleSizeChange, onBottleCountChange, onBottleUnitChange }) {
   return(
     <div className="bottle-input">
       <label>
@@ -17,9 +18,15 @@ function Bottles({ bottleSize, bottleCount, onBottleSizeChange, onBottleCountCha
         Bottle size:
         <input
           className="bottle-size-input"
-          value={bottleSize}
+          value={ bottleSize }
 					onChange={ onBottleSizeChange }
+          size={ 3 }
 				/>
+        <UnitPicker
+          currentUnits={ bottleUnit }
+          availableUnits={ ["ml", "oz"] }
+          onChange={ onBottleUnitChange }
+        />
       </label>
     </div>
   )
@@ -30,4 +37,4 @@ Bottles.propTypes = {
   bottleCount: PropTypes.string,
 }
 
-export default Bottles;
+export default Bottles

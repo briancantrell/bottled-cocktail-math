@@ -1,19 +1,29 @@
 import React from 'react'
 
-function UnitPicker({ units, onChange }) {
+function UnitPicker({ currentUnits, availableUnits, onChange }) {
   let unitInput
+  const unitOptions = [
+    { value: "oz", name: "oz" },
+    { value: "ml", name: "ml" },
+    { value: "ct", name: "count" },
+    { value: "dashes", name: "dashes" }
+  ].filter( unit => availableUnits.indexOf(unit.value) !== -1 )
   return(
-    <select readOnly
-      value={units}
+    <select
+      value={currentUnits}
       ref={node => {
         unitInput = node
       }}
       onChange={ () => { onChange(unitInput.value) }}
     >
-      <option value="oz">oz</option>
-      <option value="ml">ml</option>
-      <option value="ct">count</option>
-      <option value="dashes">dashes</option>
+      { unitOptions.map( (unitOption) => {
+        return <option 
+          value={ unitOption.value }
+          key={ unitOption.value }
+        >
+            { unitOption.name }
+          </option>
+      })}
     </select>
   )
 }

@@ -1,19 +1,20 @@
 import { manhattan } from '../cocktail_ingredients'
 
-let idCounter = manhattan.length;
+let idCounter = manhattan.length
 
 const ingredients = (state = manhattan, action) => {
   switch (action.type) {
     case 'UPDATE_INGREDIENT':
       let updated_state = state.map( (ingredient) => {
-        if(parseInt(ingredient.id) === parseInt(action.id)) {
+        if(parseInt(ingredient.id, 10) === parseInt(action.id, 10)) {
           return {
             ...ingredient,
             ...action
           }
         }else{ return ingredient }
       })
-      return updated_state;
+      return updated_state
+
     case 'ADD_INGREDIENT':
       return [
       ...state,
@@ -24,12 +25,13 @@ const ingredients = (state = manhattan, action) => {
         id: idCounter+=1
       }
     ]
+
     case 'REMOVE_INGREDIENT':
-      return state.filter( (ingredient) => ingredient.id !== action.id );
+      return state.filter( (ingredient) => ingredient.id !== action.id )
 
     default:
-      return state;
+      return state
   }
 }
 
-export default ingredients;
+export default ingredients

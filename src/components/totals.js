@@ -26,10 +26,18 @@ function Totals({ ingredients, bottles, dilutionProfile }) {
     dilutionProfile
   )
 
-  let drinkVolume = ingredientsWithWater.reduce((total, ingredient) =>
-                                       total + ingredient.quantity, 0)
+  let drinkVolume = ingredientsWithWater.reduce(
+    (total, ingredient) => { return total + ingredient.quantity }, 0
+  )
 
-  let drinksPerBottle = Math.floor(bottles.bottleSize / drinkVolume)
+  let bottleSizeInMl = 0
+  if(bottles.bottleUnit === "oz") {
+    bottleSizeInMl = ozToMl(bottles.bottleSize)
+  }else{
+    bottleSizeInMl = bottles.bottleSize
+  }
+
+  let drinksPerBottle = Math.floor(bottleSizeInMl / drinkVolume)
   let formattedDrinkVolume = Number.parseFloat(
     mlToOz(drinkVolume)
   ).toPrecision(2)

@@ -20,6 +20,8 @@ export const toBatchFriendlyUnits = (ingredient) => {
       units: "ml",
       quantity: dashesToMl(ingredient.quantity)
     }
+    default:
+      return ingredient
   }
 }
 

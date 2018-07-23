@@ -2,8 +2,12 @@ import { connect } from 'react-redux'
 import Bottles from 'components/bottles'
 
 const mapStateToProps = (state) => {
-  let { bottleSize, bottleCount } = state.bottles
-  return { bottleSize: bottleSize, bottleCount: bottleCount }
+  let { bottleSize, bottleCount, bottleUnit } = state.bottles
+  return {
+    bottleSize: bottleSize,
+    bottleCount: bottleCount,
+    bottleUnit: bottleUnit
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -18,6 +22,12 @@ const mapDispatchToProps = (dispatch) => {
       dispatch({
 				type: 'UPDATE_BOTTLE_SIZE',
 				bottleSize: e.target.value,
+			})
+    },
+    onBottleUnitChange: (e) => {
+      dispatch({
+				type: 'UPDATE_BOTTLE_UNIT',
+				bottleUnit: e,
 			})
     }
 	}
