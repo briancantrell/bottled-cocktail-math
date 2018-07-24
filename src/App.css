@@ -1,39 +1,85 @@
-.app-logo {
-  animation: App-logo-spin infinite 20s linear;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #891e3a;
 }
 
-.container{
-  max-width: 80%;
+.App{
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #edecea;
+  box-shadow: 0px 0px 16px 10px rgba(30, 30, 30, 0.2);
+  color: #43413f;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 0.5em;
 }
+.App > * {
+  flex: 1 100%;
+}
+@media all and (min-width: 600px) {
+  .App {
+    padding: 2em;
+  }
+  .form-control-set { 
+    flex: 1 300px; 
+    padding: 0 2em 1em 2em;
+  }
+  .ingredient-list {
+    border-right: 1px dashed #666;
+  }
+}
+
+.form-row {
+  display: flex;
+  margin-bottom: 0.5em;
+}
+.form-row > * {
+  flex: 1 100%;
+}
+
+
+.results {
+  text-align: center;
+  border-top: 1px dashed #666;
+  border-bottom: 1px dashed #666;
+  padding: 1em 0;
+  margin-top: 2em;
+}
+
+.dilution-header {
+  border-top: 1px dashed #666;
+  padding-top: 1em;
+}
+
 
 .app-header {
   text-align: center;
-  background-color: #222;
   padding: 20px;
 }
 
 .app-title {
   margin-top: 0px;
-  color: white;
-  font-size: 4rem;
+  color: #222;
+  font-size: 3rem;
+}
+.app-logo {
+	font-size: 90px;
 }
 
 .dilution-profile {
   display: block;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+h3{
+  text-transform: uppercase;
+  font-size: 1.5em;
+  font-weight: 800;
+  letter-spacing: 0.03em;
 }
 
-.ingredient-list {
-  flex: 2;
-}
 
-.app-logo {
-	font-size: 120px;
-}
 ul {
   list-style-type: none;
 	padding: 0;
@@ -42,9 +88,7 @@ li {
   margin-bottom: 15px;
   text-align: left;
 }
-.bottle-input label {
-	margin-bottom: 15px;
-}
+
 .bottle-input label, .bottle-input input {
 	display: block;
 }
@@ -55,11 +99,30 @@ select {
 	padding: 5px;
 	font-size: 15px;
 	outline: none!important;
-	border: 1px solid hsla(0, 0, 0, 0.3);
-	box-shadow: inset 0 1px 4px hsla(0, 0, 0, 0.2);
+	border: 0;
+	/* box-shadow: inset 0 1px 4px hsla(0, 0, 0, 0.2); */
 	margin-right: 10px;
   width: auto;
+  background: #fff;
 }
 button, select {
-	height: 42px;
+	height: 39px;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+.form-row button {
+  text-transform: uppercase;
+  background: transparent;
+  font-weight: 800;
+  width: auto;
+  padding: 0 1rem;
+  font-size: 1.2rem;
+  flex: none;
+  border: 1px solid #999;
+  color: #999;
+  cursor: pointer;
+}
+
+section.about{
+  border: 1px dashed #666;
 }

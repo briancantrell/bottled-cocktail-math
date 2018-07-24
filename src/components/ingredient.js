@@ -5,7 +5,7 @@ import IngredientNameContainer from 'containers/ingredient_name_container'
 
 function Ingredient({ id, name, quantity, units, dispatch }) {
   return(
-    <li>
+    <div className="form-row">
       <QuantityContainer value={ quantity } id={ id } size={ 2 } />
 
       <UnitPicker
@@ -28,7 +28,7 @@ function Ingredient({ id, name, quantity, units, dispatch }) {
       >
         X
       </button>
-    </li>
+    </div>
   )
 }
 
