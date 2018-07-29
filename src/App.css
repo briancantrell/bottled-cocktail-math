@@ -7,7 +7,9 @@ body {
 input {
   font-family: 'Lato', sans-serif;
 }
-
+a {
+  color: #891e3a;
+}
 
 .App{
   max-width: 1200px;
@@ -145,6 +147,15 @@ button, select {
 
 section.about{
   border: 1px dashed #666;
+  display: flex;
+}
+section.about h3, section.about p {
+  flex: 1 1 200px;
+  padding: 20px;
+}
+section.about h3 {
+  text-align: center;
+  align-self: center;
 }
 
 .totals {
