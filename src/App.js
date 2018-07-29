@@ -15,7 +15,7 @@ class App extends Component {
 					<div className="app-logo">
 						<span role="img" aria-label="cocktail">🍹</span>
 					</div>
-          <h1 className="app-title">Bottled Cocktail Math</h1>
+          <h1 className="app-title">Bottled Cocktail Calculator</h1>
         </header>
 
         <div className="ingredient-list form-control-set">

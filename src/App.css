@@ -1,9 +1,13 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
   background: #891e3a;
+  font-family: 'Lato', sans-serif;
 }
+input {
+  font-family: 'Lato', sans-serif;
+}
+
 
 .App{
   max-width: 1200px;
@@ -18,18 +22,6 @@ body {
 .App > * {
   flex: 1 100%;
 }
-@media all and (min-width: 600px) {
-  .App {
-    padding: 2em;
-  }
-  .form-control-set { 
-    flex: 1 300px; 
-    padding: 0 2em 1em 2em;
-  }
-  .ingredient-list {
-    border-right: 1px dashed #666;
-  }
-}
 
 .form-row {
   display: flex;
@@ -39,6 +31,9 @@ body {
   flex: 1 100%;
 }
 
+h1, h2, h3 {
+  font-weight: 900;
+}
 
 .results {
   text-align: center;
@@ -53,20 +48,30 @@ body {
   padding-top: 1em;
 }
 
-
 .app-header {
-  text-align: center;
+  border-bottom: 1px dashed #666;
   padding: 20px;
+  display: flex;
+  justify-content: center;
 }
 
+.app-logo {
+	font-size: 70px;
+  flex: 0 1 100px;
+  text-align: right;
+  padding-right: 0.5em;
+}
 .app-title {
   margin-top: 0px;
   color: #222;
-  font-size: 3rem;
+  font-family: 'Quattrocento', serif;
+  font-size: 2rem;
+  /* flex: 1; */
+  flex: 0 1 auto;
+  text-align: left;
+  max-width: 500px;
 }
-.app-logo {
-	font-size: 90px;
-}
+
 
 .dilution-profile {
   display: block;
@@ -89,8 +94,21 @@ li {
   text-align: left;
 }
 
-.bottle-input label, .bottle-input input {
+.bottle-input label, .bottle-input input, .bottle-input select, select.dilution-profile {
 	display: block;
+  margin-top: 5px;
+}
+
+label {
+  margin-bottom: 1em;
+}
+
+.unit-picker {
+  max-width: 100px;
+}
+
+.bottle-size-input {
+  max-width: 200px;
 }
 
 input,
@@ -109,6 +127,7 @@ button, select {
 	height: 39px;
   border-radius: 0;
   -webkit-appearance: none;
+  color: #43413f;
 }
 .form-row button {
   text-transform: uppercase;
@@ -119,10 +138,60 @@ button, select {
   font-size: 1.2rem;
   flex: none;
   border: 1px solid #999;
-  color: #999;
+  background-color: #999;
   cursor: pointer;
+  color: #edecea;
 }
 
 section.about{
   border: 1px dashed #666;
+}
+
+.totals {
+  font-size: 1.1em;
+}
+
+.totals strong {
+  font-family: 'Quattrocento', serif;
+  font-size: 1.5em;
+}
+
+.totals ul {
+  padding: 10px;
+}
+
+.totals ul li span.quantity{
+  display: inline-block;
+  text-align: right;
+  margin-right: 10px;
+  min-width: 50px;
+}
+
+@media all and (min-width: 500px) {
+  .totals {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+@media all and (min-width: 845px) {
+  .App {
+    padding: 2em;
+  }
+  .form-control-set {
+    flex: 1 300px;
+    padding: 0 2em 2em 2em;
+  }
+  .ingredient-list {
+    border-right: 1px dashed #666;
+  }
+  .app-logo {
+    flex: 0 1 300px;
+    font-size: 90px;
+  }
+  .app-title {
+    font-size: 3rem;
+  }
+  .app-header {
+    margin-bottom: 40px;
+  }
 }
