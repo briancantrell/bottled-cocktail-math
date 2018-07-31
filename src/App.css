@@ -145,14 +145,16 @@ button, select {
   color: #edecea;
 }
 
-section.about{
-  border: 1px dashed #666;
-  display: flex;
+section.about h3{
+  border-top: 1px dashed #666;
+  border-bottom: 1px dashed #666;
 }
-section.about h3, section.about p {
-  flex: 1 1 200px;
+
+section.about > * {
+  flex: 1 300px;
   padding: 20px;
 }
+
 section.about h3 {
   text-align: center;
   align-self: center;
@@ -183,6 +185,12 @@ section.about h3 {
     display: flex;
     justify-content: space-evenly;
   }
+
+  .totals {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
 }
 @media all and (min-width: 845px) {
   .App {
@@ -204,5 +212,12 @@ section.about h3 {
   }
   .app-header {
     margin-bottom: 40px;
+  }
+  section.about{
+    border: 1px dashed #666;
+    display: flex;
+  }
+  section.about h3{
+    border: 0;
   }
 }
