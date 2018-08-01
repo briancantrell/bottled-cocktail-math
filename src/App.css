@@ -116,7 +116,7 @@ label {
 input,
 select {
 	height: 28px;
-	padding: 5px;
+	padding: 5px 10px;
 	font-size: 15px;
 	outline: none!important;
 	border: 0;
@@ -202,6 +202,10 @@ section.about h3 {
   }
   .ingredient-list {
     border-right: 1px dashed #666;
+    padding-right: 4em;
+  }
+  .batch-info {
+    padding-left: 4em;
   }
   .app-logo {
     flex: 0 1 300px;
