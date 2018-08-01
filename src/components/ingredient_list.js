@@ -6,7 +6,7 @@ class IngredientList extends React.Component {
   render() {
     const ingredients = this.props.ingredients
     return (
-      <ul>
+      <div>
         {ingredients.map(ingredient =>
                          <IngredientContainer
                            key={ ingredient.id }
@@ -15,7 +15,7 @@ class IngredientList extends React.Component {
                            units={ingredient.units}
                            quantity={ingredient.quantity} />
                         )}
-                      </ul>
+                      </div>
 
     )
   }

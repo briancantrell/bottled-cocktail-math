@@ -10,6 +10,7 @@ function UnitPicker({ currentUnits, availableUnits, onChange }) {
   ].filter( unit => availableUnits.indexOf(unit.value) !== -1 )
   return(
     <select
+      className="unit-picker"
       value={currentUnits}
       ref={node => {
         unitInput = node

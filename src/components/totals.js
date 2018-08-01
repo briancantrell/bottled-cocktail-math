@@ -15,8 +15,10 @@ function totalIngredients (ingredients, totalServings) {
 }
 
 function ingredientLine(ingredient) {
-  const ingredientString = `${Math.round(ingredient.quantity)} ${ingredient.units} ${ingredient.name}`
-  return <li key={ingredient.id}>{ingredientString}</li>
+  const quantityString = `${Math.round(ingredient.quantity)} ${ingredient.units}`
+  return <li key={ingredient.id}>
+    <span className="quantity">{quantityString}</span> <span>{ingredient.name}</span>
+  </li>
 }
 
 function Totals({ ingredients, bottles, dilutionProfile }) {
@@ -45,28 +47,31 @@ function Totals({ ingredients, bottles, dilutionProfile }) {
   let ingredientTotals = totalIngredients(ingredientsWithWater, totalServings)
 
   return(
-    <ul className="totals">
-			<li>
-				<strong>Batch quantities</strong>
-			</li>
+    <div className="totals">
+      <ul className="batch-quantities">
+        <li>
+          <strong>Batch Quantities</strong>
+        </li>
 
-      {ingredientTotals.map( (ingredient) => {
-        return ingredientLine(ingredient)
-      })}
-
-			<li>
-				<strong>Serving info</strong>
-			</li>
-      <li className="border-top">
-        Drink volume: <strong className="drinkVolume">{formattedDrinkVolume} oz</strong>
-      </li>
-      <li>
-        Drinks per bottle: <strong className="drinksPerBottle">{drinksPerBottle}</strong>
-      </li>
-      <li>
-        Total servings: <strong className="totalServings">{totalServings}</strong>
-      </li>
-    </ul>
+        {ingredientTotals.map( (ingredient) => {
+          return ingredientLine(ingredient)
+        })}
+      </ul>
+      <ul className="serving-info">
+        <li>
+          <strong>Serving Info</strong>
+        </li>
+        <li className="border-top">
+           <span className="quantity">{formattedDrinkVolume} oz</span><span>drink volume</span>
+        </li>
+        <li>
+           <span className="quantity">{drinksPerBottle}</span><span>drinks per bottle</span>
+        </li>
+        <li>
+          <span className="quantity">{totalServings}</span><span>total servings</span> 
+        </li>
+      </ul>
+    </div>
   )
 }
 

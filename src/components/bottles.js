@@ -16,17 +16,19 @@ function Bottles({ bottleSize, bottleCount, bottleUnit, onBottleSizeChange, onBo
 
       <label>
         Bottle size:
-        <input
-          className="bottle-size-input"
-          value={ bottleSize }
-					onChange={ onBottleSizeChange }
-          size={ 3 }
-				/>
-        <UnitPicker
-          currentUnits={ bottleUnit }
-          availableUnits={ ["ml", "oz"] }
-          onChange={ onBottleUnitChange }
-        />
+        <div className="form-row">
+          <input
+            className="bottle-size-input"
+            value={ bottleSize }
+            onChange={ onBottleSizeChange }
+            size={ 3 }
+          />
+          <UnitPicker
+            currentUnits={ bottleUnit }
+            availableUnits={ ["ml", "oz"] }
+            onChange={ onBottleUnitChange }
+          />
+        </div>
       </label>
     </div>
   )
