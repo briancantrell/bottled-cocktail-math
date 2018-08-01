@@ -11,6 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <a href="https://github.com/briancantrell/bottled-cocktail-math"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" className="fork-me" alt="Fork me on GitHub" /></a>
         <header className="app-header header">
 					<div className="app-logo">
 						<span role="img" aria-label="cocktail">🍹</span>
