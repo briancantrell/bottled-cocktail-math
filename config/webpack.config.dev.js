@@ -137,17 +137,12 @@ module.exports = {
               name: 'static/media/[name].[hash:8].[ext]',
             },
           },
-          // Process JS with Babel.
           {
             test: /\.(ts|tsx|js|jsx|mjs)$/,
-            include: paths.appSrc,
-            loader: require.resolve('awesome-typescript-loader'),
-            options: {
-              // This is a feature of `babel-loader` for webpack (not Babel itself).
-              // It enables caching results in ./node_modules/.cache/babel-loader/
-              // directory for faster rebuilds.
-              cacheDirectory: true,
-            },
+            include: [paths.appSrc, __dirname],
+            // include: __dirname,
+            // loader: require.resolve('awesome-typescript-loader'),
+            use: 'awesome-typescript-loader',
           },
           // "postcss" loader applies autoprefixer to our CSS.
           // "css" loader resolves paths in CSS and adds assets as dependencies.

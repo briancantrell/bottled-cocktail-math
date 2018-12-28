@@ -1,8 +1,27 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import UnitPicker from 'components/unit_picker'
+import * as React from 'react'
+import * as PropTypes from 'prop-types'
+import UnitPicker from './unit_picker'
 
-function Bottles({ bottleSize, bottleCount, bottleUnit, onBottleSizeChange, onBottleCountChange, onBottleUnitChange }) {
+interface BottleSpec {
+  bottleSize: number;
+  bottleCount: number;
+  bottleUnit: number;
+}
+
+interface BottleComponent extends BottleSpec {
+  onBottleSizeChange(event: any) : void;
+  onBottleCountChange(event: any) : void;
+  onBottleUnitChange(event: any) : void;
+}
+
+function Bottles({ 
+  bottleSize, 
+  bottleCount, 
+  bottleUnit, 
+  onBottleSizeChange, 
+  onBottleCountChange, 
+  onBottleUnitChange 
+}: BottleComponent ) {
   return(
     <div className="bottle-input">
       <label>
@@ -10,8 +29,7 @@ function Bottles({ bottleSize, bottleCount, bottleUnit, onBottleSizeChange, onBo
         <input
           className="bottle-count-input"
           value={ bottleCount }
-          onChange={ onBottleCountChange }
-        />
+          onChange={ onBottleCountChange } />
       </label>
 
       <label>

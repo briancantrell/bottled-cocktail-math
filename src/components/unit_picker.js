@@ -29,4 +29,3 @@ function UnitPicker({ currentUnits, availableUnits, onChange }) {
   )
 }
 export default UnitPicker
-
