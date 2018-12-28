@@ -1,4 +1,4 @@
-export const toBatchFriendlyUnits = (ingredient) => {
+export const toBatchFriendlyUnits = (ingredient: { units: String, quantity: number }): {units: String, quantity: number} => {
   switch(ingredient.units) {
     case "ml":
       return ingredient
@@ -25,15 +25,14 @@ export const toBatchFriendlyUnits = (ingredient) => {
   }
 }
 
-export const dashesToMl = (dashes) => {
+const dashesToMl = (dashes: number): number => {
   return dashes * 0.72;
 }
 
-export const ozToMl = (oz) => {
+export const ozToMl = (oz: number): number => {
   return oz * 29.5735;
 }
 
-export const mlToOz = (ml) => {
+export const mlToOz = (ml: number): number => {
   return ml / 29.5735;
 }
-
