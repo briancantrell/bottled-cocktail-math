@@ -5,7 +5,7 @@ import UnitPicker from './unit_picker'
 interface BottleSpec {
   bottleSize: number;
   bottleCount: number;
-  bottleUnit: number;
+  bottleUnit: string;
   id?: number;
 }
 
