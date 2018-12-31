@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import TextInput from 'components/text_input'
+import { UpdateIngredientName } from '../actions/index'
 
 const mapStateToProps = (state) => {
   return { }
@@ -7,13 +8,15 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     changeHandler: (e) => {
-      dispatch({
-        type: 'UPDATE_INGREDIENT',
-        name: e.target.value,
-        id: e.target.id
-      })
+      dispatch(
+        UpdateIngredientName(
+          Number(e.target.id),
+          e.target.value,
+        ) 
+      )
+    }
   }
-}}
+}
 
 export default connect(
   mapStateToProps,

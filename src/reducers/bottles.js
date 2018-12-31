@@ -16,7 +16,6 @@ const bottles = (state = {bottleSize: "187", bottleCount: "3", bottleUnit: "ml"}
         bottleUnit: action.bottleUnit,
       }
     default:
-      console.log(state)
       return state
   }
 }

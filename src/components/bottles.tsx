@@ -6,6 +6,7 @@ interface BottleSpec {
   bottleSize: number;
   bottleCount: number;
   bottleUnit: number;
+  id?: number;
 }
 
 interface BottleComponent extends BottleSpec {
@@ -20,7 +21,8 @@ function Bottles({
   bottleUnit, 
   onBottleSizeChange, 
   onBottleCountChange, 
-  onBottleUnitChange 
+  onBottleUnitChange,
+  id 
 }: BottleComponent ) {
   return(
     <div className="bottle-input">
@@ -45,6 +47,7 @@ function Bottles({
             currentUnits={ bottleUnit }
             availableUnits={ ["ml", "oz"] }
             onChange={ onBottleUnitChange }
+            id= { id }
           />
         </div>
       </label>

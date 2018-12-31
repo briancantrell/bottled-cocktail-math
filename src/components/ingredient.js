@@ -3,7 +3,7 @@ import UnitPicker from 'components/unit_picker'
 import QuantityContainer from 'containers/quantity_container'
 import IngredientNameContainer from 'containers/ingredient_name_container'
 
-function Ingredient({ id, name, quantity, units, dispatch }) {
+function Ingredient({ id, name, quantity, units, dispatch, onUnitPickerChange }) {
   return(
     <div className="form-row">
       <QuantityContainer value={ quantity } id={ id } size={ 2 } />
@@ -11,17 +11,13 @@ function Ingredient({ id, name, quantity, units, dispatch }) {
       <UnitPicker
         currentUnits={ units }
         availableUnits={ ["oz", "ml", "dashes", "ct"] }
-        onChange={ (unitVal) => {
-          dispatch({
-            type: 'UPDATE_INGREDIENT',
-            id: id,
-            units: unitVal
-          })
-          }
-        }
+        onChange={ onUnitPickerChange }
       />
 
-      <IngredientNameContainer value={name} id={ id } />
+      <IngredientNameContainer 
+        value={name} 
+        id={ id } 
+      />
 
       <button
         onClick={ () => { dispatch({type: "REMOVE_INGREDIENT", id: id}) }}
