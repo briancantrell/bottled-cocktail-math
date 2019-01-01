@@ -5,12 +5,12 @@ const bottles = (state = {bottleSize: 187, bottleCount: 3, bottleUnit: "ml"}, ac
     case UPDATE_BOTTLE_SIZE:
       return {
         ...state,
-        bottleSize: action.value,
+        bottleSize: Number(action.value),
       }
     case UPDATE_BOTTLE_COUNT:
       return {
         ...state,
-        bottleCount: action.value,
+        bottleCount: Number(action.value),
       }
     case UPDATE_BOTTLE_UNITS:
       return {

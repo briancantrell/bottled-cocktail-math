@@ -1,8 +1,14 @@
 import { connect } from 'react-redux'
-import Bottles from 'components/bottles'
+import Bottles from '../components/bottles'
 import { UpdateBottleSize, UpdateBottleCount, UpdateBottleUnits } from '../actions/bottles';
 
-const mapStateToProps = (state) => {
+interface BottleState {
+  bottleCount: number,
+  bottleSize: number,
+  bottleUnit: string
+}
+
+const mapStateToProps = (state): BottleState => {
   let { bottleSize, bottleCount, bottleUnit } = state.bottles
   return {
     bottleSize: bottleSize,

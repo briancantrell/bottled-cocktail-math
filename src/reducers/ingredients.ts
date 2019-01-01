@@ -1,16 +1,12 @@
 import { manhattan } from '../cocktail_ingredients'
 import * as actions from '../actions/index'
+import { RecipeIngredient } from '../types/ingredient';
 
 let idCounter = manhattan.length
-interface RecipeIngredient {
-  id: number;
-  name: string;
-  units: string;
-  quantity: number;
-}
 
 interface IngredientReducerFunc {
-  (state: RecipeIngredient[], action: actions.IngredientAction): any
+  (state: RecipeIngredient[], 
+    action: actions.IngredientAction): any
 }
 
 let ingredients_reducer: IngredientReducerFunc;

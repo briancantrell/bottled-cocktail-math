@@ -2,6 +2,8 @@ import * as React from 'react'
 import * as PropTypes from 'prop-types'
 import UnitPicker from './unit_picker'
 
+// TODO: this is nearly identical to bottles_container#BottleState
+// where do shared interfaces go?
 interface BottleSpec {
   bottleSize: number;
   bottleCount: number;
@@ -53,11 +55,6 @@ function Bottles({
       </label>
     </div>
   )
-}
-
-Bottles.propTypes = {
-  bottleSize: PropTypes.string,
-  bottleCount: PropTypes.string,
 }
 
 export default Bottles
