@@ -44,7 +44,7 @@ function Totals({ ingredients, bottles, dilutionProfile }) {
   }
 
   let drinksPerBottle = Math.floor(bottleSizeInMl / drinkVolume)
-  let formattedDrinkVolume = mlToOz(drinkVolume).toFixed(2)
+  let formattedDrinkVolume = mlToOz(drinkVolume).toFixed(1)
   
   let totalServings = drinksPerBottle * bottles.bottleCount
   let ingredientTotals = totalIngredients(ingredientsWithWater, totalServings)
@@ -65,13 +65,13 @@ function Totals({ ingredients, bottles, dilutionProfile }) {
           <strong>Serving Info</strong>
         </li>
         <li className="border-top">
-           <span className="quantity">{formattedDrinkVolume} oz</span><span>drink volume</span>
+           <span className="quantity drink-volume">{formattedDrinkVolume} oz</span><span>drink volume</span>
         </li>
         <li>
-           <span className="quantity">{drinksPerBottle}</span><span>drinks per bottle</span>
+           <span className="quantity drinks-per-bottle">{drinksPerBottle}</span><span>drinks per bottle</span>
         </li>
         <li>
-          <span className="quantity">{totalServings}</span><span>total servings</span> 
+          <span className="quantity total-servings">{totalServings}</span><span>total servings</span> 
         </li>
       </ul>
     </div>

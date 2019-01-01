@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import Bottles from 'components/bottles'
+import Bottles from '../bottles'
 
 describe("bottles component", () => {
 
