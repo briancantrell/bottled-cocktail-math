@@ -1,8 +1,10 @@
 import React from 'react'
-import { ozToMl, mlToOz, toBatchFriendlyUnits } from 'utils/units'
+import { ozToMl, mlToOz, toBatchFriendlyUnits } from '../utils/units'
+import { ingredientsWithDilution } from '../utils/dilution'
+import { RecipeIngredient } from '../types/ingredient';
 
-import { ingredientsWithDilution } from 'utils/dilution'
 
+// TODO: move all this logic to src/reducers/totals.ts
 function totalIngredients (ingredients, totalServings) {
   return ingredients.map( (ingredient) => {
     let ingredientInBatchUnits = toBatchFriendlyUnits(ingredient)
@@ -14,11 +16,13 @@ function totalIngredients (ingredients, totalServings) {
   })
 }
 
-function ingredientLine(ingredient) {
+function ingredientLine(ingredient: RecipeIngredient) {
   const quantityString = `${Math.round(ingredient.quantity)} ${ingredient.units}`
-  return <li key={ingredient.id}>
-    <span className="quantity">{quantityString}</span> <span>{ingredient.name}</span>
-  </li>
+  return(
+    <li key={ingredient.id}>
+      <span className="quantity">{quantityString}</span> <span>{ingredient.name}</span>
+    </li>
+  )
 }
 
 function Totals({ ingredients, bottles, dilutionProfile }) {
@@ -40,9 +44,8 @@ function Totals({ ingredients, bottles, dilutionProfile }) {
   }
 
   let drinksPerBottle = Math.floor(bottleSizeInMl / drinkVolume)
-  let formattedDrinkVolume = Number.parseFloat(
-    mlToOz(drinkVolume)
-  ).toPrecision(2)
+  let formattedDrinkVolume = mlToOz(drinkVolume).toFixed(1)
+  
   let totalServings = drinksPerBottle * bottles.bottleCount
   let ingredientTotals = totalIngredients(ingredientsWithWater, totalServings)
 
@@ -62,13 +65,13 @@ function Totals({ ingredients, bottles, dilutionProfile }) {
           <strong>Serving Info</strong>
         </li>
         <li className="border-top">
-           <span className="quantity">{formattedDrinkVolume} oz</span><span>drink volume</span>
+           <span className="quantity drink-volume">{formattedDrinkVolume} oz</span><span>drink volume</span>
         </li>
         <li>
-           <span className="quantity">{drinksPerBottle}</span><span>drinks per bottle</span>
+           <span className="quantity drinks-per-bottle">{drinksPerBottle}</span><span>drinks per bottle</span>
         </li>
         <li>
-          <span className="quantity">{totalServings}</span><span>total servings</span> 
+          <span className="quantity total-servings">{totalServings}</span><span>total servings</span> 
         </li>
       </ul>
     </div>

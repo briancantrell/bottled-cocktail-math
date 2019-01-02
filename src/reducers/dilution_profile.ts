@@ -8,4 +8,3 @@ const dilutionProfile = (state = "shaken", action) => {
 }
 
 export default dilutionProfile;
-

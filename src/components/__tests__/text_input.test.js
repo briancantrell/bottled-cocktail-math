@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import TextInput from 'components/text_input'
+import TextInput from '../text_input'
 
 describe("bottles component", () => {
 

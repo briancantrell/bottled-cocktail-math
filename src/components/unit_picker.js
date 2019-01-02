@@ -1,6 +1,6 @@
 import React from 'react'
 
-function UnitPicker({ currentUnits, availableUnits, onChange }) {
+function UnitPicker({ currentUnits, availableUnits, onChange, id }) {
   let unitInput
   const unitOptions = [
     { value: "oz", name: "oz" },
@@ -12,10 +12,8 @@ function UnitPicker({ currentUnits, availableUnits, onChange }) {
     <select
       className="unit-picker"
       value={currentUnits}
-      ref={node => {
-        unitInput = node
-      }}
-      onChange={ () => { onChange(unitInput.value) }}
+      id= { id }
+      onChange={ (e) => { onChange(e) }}
     >
       { unitOptions.map( (unitOption) => {
         return <option 
@@ -29,4 +27,3 @@ function UnitPicker({ currentUnits, availableUnits, onChange }) {
   )
 }
 export default UnitPicker
-

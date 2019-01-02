@@ -1,4 +1,4 @@
-import { toMl, toBatchFriendlyUnits } from "utils/units"
+import { toMl, toBatchFriendlyUnits } from "../units"
 
 describe("toBatchFriendlyUnits", () => {
   describe("ingredient is in oz", () => {
