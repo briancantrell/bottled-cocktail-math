@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 function AddIngredient({dispatch}) {
   return(
-    <div className="form-row">
+    <div className="form-row test">
       <button
           onClick={() => {
             dispatch({

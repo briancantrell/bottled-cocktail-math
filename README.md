@@ -1,5 +1,8 @@
+
 # Bottled Cocktail Math
 http://bottled-cocktail-calculator.briancantrell.com
+
+[![CircleCI](https://circleci.com/gh/briancantrell/bottled-cocktail-math.svg?style=svg)](https://circleci.com/gh/briancantrell/bottled-cocktail-math)
 
 ## Features or changes I might want to add down the road.
 - [x] Put this sucker on Github
