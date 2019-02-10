@@ -1,7 +1,6 @@
 import React from 'react'
 
 function UnitPicker({ currentUnits, availableUnits, onChange, id }) {
-  let unitInput
   const unitOptions = [
     { value: "oz", name: "oz" },
     { value: "ml", name: "ml" },

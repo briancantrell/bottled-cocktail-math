@@ -7,26 +7,41 @@ export type UPDATE_INGREDIENT_UNITS = typeof UPDATE_INGREDIENT_UNITS;
 export const UPDATE_INGREDIENT_NAME = 'UPDATE_INGREDIENT_NAME';
 export type UPDATE_INGREDIENT_NAME = typeof UPDATE_INGREDIENT_NAME;
 
+export const ADD_INGREDIENT = 'ADD_INGREDIENT';
+export type ADD_INGREDIENT = typeof ADD_INGREDIENT;
+
+export const REMOVE_INGREDIENT = 'REMOVE_INGREDIENT';
+export type REMOVE_INGREDIENT = typeof REMOVE_INGREDIENT;
+
 
 export interface UpdateIngredientQuantity {
-  id: number;
+  id: string;
   type: UPDATE_INGREDIENT_QUANTITY;
   value: number;
 }
 export interface UpdateIngredientUnits {
-  id: number;
+  id: string;
   type: UPDATE_INGREDIENT_UNITS;
   value: string;
 }
 export interface UpdateIngredientName {
-  id: number;
+  id: string;
   type: UPDATE_INGREDIENT_NAME;
   value: string;
 }
 
-export type IngredientAction = UpdateIngredientQuantity | UpdateIngredientUnits | UpdateIngredientName;
+export interface AddIngredient {
+  type: ADD_INGREDIENT;
+}
 
-export function UpdateIngredientQuantity(id: number, value: number): UpdateIngredientQuantity {
+export interface RemoveIngredient {
+  id: string;
+  type: REMOVE_INGREDIENT;
+}
+
+export type IngredientAction = UpdateIngredientQuantity | UpdateIngredientUnits | UpdateIngredientName | AddIngredient | RemoveIngredient;
+
+export function UpdateIngredientQuantity(id: string, value: number): UpdateIngredientQuantity {
   return {
     id: id,
     type: UPDATE_INGREDIENT_QUANTITY,
@@ -34,7 +49,15 @@ export function UpdateIngredientQuantity(id: number, value: number): UpdateIngre
   };
 }
 
-export function UpdateIngredientUnits(id: number, value: string): UpdateIngredientUnits {
+export function RemoveIngredient(id: string): RemoveIngredient {
+  return {
+    id: id,
+    type: REMOVE_INGREDIENT,
+  };
+}
+
+
+export function UpdateIngredientUnits(id: string, value: string): UpdateIngredientUnits {
   return {
     id: id,
     type: UPDATE_INGREDIENT_UNITS,
@@ -42,7 +65,7 @@ export function UpdateIngredientUnits(id: number, value: string): UpdateIngredie
   };
 }
 
-export function UpdateIngredientName(id: number, value: string): UpdateIngredientName {
+export function UpdateIngredientName(id: string, value: string): UpdateIngredientName {
   return {
     id: id,
     type: UPDATE_INGREDIENT_NAME,

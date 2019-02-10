@@ -10,7 +10,7 @@ const mapDispatchToProps = (dispatch) => {
     changeHandler: (e) => {
       dispatch(
         UpdateIngredientName(
-          Number(e.target.id),
+          e.target.id,
           e.target.value,
         ) 
       )

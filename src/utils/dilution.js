@@ -10,7 +10,7 @@ export const ingredientsWithDilution = (ingredients, dilutionProfile) => {
                                        total + ingredient.quantity
                                        , 0)
 
-  const waterPerDrink = drinkVolumeWithoutWater * dilutionMap[dilutionProfile]
+  const waterPerDrink = Math.round(drinkVolumeWithoutWater * dilutionMap[dilutionProfile])
 
   const ingredientsWithWater = [
     ...ingredients,

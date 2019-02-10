@@ -26,13 +26,13 @@ export const toBatchFriendlyUnits = (ingredient: { units: String, quantity: numb
 }
 
 const dashesToMl = (dashes: number): number => {
-  return dashes * 0.72;
+  return Math.round(dashes * 0.72);
 }
 
 export const ozToMl = (oz: number): number => {
-  return oz * 29.5735;
+  return Math.round(oz * 29.5735);
 }
 
 export const mlToOz = (ml: number): number => {
-  return ml / 29.5735;
+  return +(ml / 29.5735).toFixed(1);
 }
