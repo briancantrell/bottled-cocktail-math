@@ -3,14 +3,11 @@ import Totals from '../components/totals'
 
 const mapStateToProps = (state) => {
   return {
-    ingredients: state.ingredients,
-    bottles: state.bottles,
-    dilutionProfile: state.dilutionProfile
+    ingredientTotals: state.ingredientTotals, 
+    formattedDrinkVolume: state.formattedDrinkVolume, 
+    drinksPerBottle: state.drinksPerBottle, 
+    totalServings: state.totalServings,
   }
 }
 
-const TotalsContainer = connect(mapStateToProps)(Totals)
-
-export default TotalsContainer
-
-
+export default connect(mapStateToProps)(Totals)

@@ -16,7 +16,7 @@ describe("toBatchFriendlyUnits", () => {
     })
 
     it("converts quantity to ml", () => {
-      expect(subject.quantity).toEqual(59.147)
+      expect(subject.quantity).toEqual(59)
     })
 
     it("merges other props", () => {
@@ -40,7 +40,7 @@ describe("toBatchFriendlyUnits", () => {
     })
 
     it("converts quantity to ml", () => {
-      expect(subject.quantity).toEqual(1.44)
+      expect(subject.quantity).toEqual(1)
     })
 
     it("merges other props", () => {

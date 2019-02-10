@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 class IngredientList extends React.Component {
   render() {
     const ingredients = this.props.ingredients
+    
     return (
       <div>
         {ingredients.map(ingredient =>
@@ -22,7 +23,7 @@ class IngredientList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return { ingredients: state.ingredients };
+  return { ingredients: state.ingredients };
 };
 
 export default connect(mapStateToProps)(IngredientList);

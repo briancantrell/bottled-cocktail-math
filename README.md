@@ -9,9 +9,11 @@ http://bottled-cocktail-calculator.briancantrell.com
 - [x] Add ml/oz/dash unit support to ingredient and bottle size inputs
 - [x] More attractive, super classy styling
 - [x] Links to learn more about bottled cocktails
-- [ ] Build automatically on CircleCI
+- [x] Build automatically on CircleCI
+- [x] ~Proptypes~ Typescript
+- [ ] Count units don't show up in recipe
+- [ ] Error message when recipe doesn't fit in 1 bottle
 - [ ] More prebuilt recipes
-- [ ] Proptypes
 - [ ] Remove any unused dependencies added by Create React App
 - [ ] Persistence
 
